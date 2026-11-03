@@ -8,7 +8,7 @@ export const DEFAULT_BACKEND_ORIGIN = `http://${DEFAULT_BACKEND_HOST}:${DEFAULT_
 export const DEFAULT_FRONTEND_PORT = 3000;
 export const DEFAULT_FRONTEND_ORIGIN = `http://localhost:${DEFAULT_FRONTEND_PORT}`;
 export const DEFAULT_APPLICATION_DATA_DIRECTORY = '.data';
-export const DEFAULT_DATABASE_FILENAME = 'project-template.sqlite';
+export const DEFAULT_DATABASE_FILENAME = 'delegate-history.sqlite';
 
 // How long a "saved" save-status toast remains visible before it auto-dismisses.
 export const SAVED_TOAST_DURATION_MS = 3000;

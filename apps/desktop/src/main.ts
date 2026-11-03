@@ -2,7 +2,7 @@ import {
   DEFAULT_BACKEND_HOST,
   DEFAULT_BACKEND_PORT,
   DEFAULT_FRONTEND_PORT,
-} from '@project-template/shared';
+} from '@delegate-history/shared';
 import { app, BrowserWindow, dialog, ipcMain } from 'electron';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -202,7 +202,7 @@ async function startApp(): Promise<void> {
   mainWindow = new BrowserWindow({
     width: 1400,
     height: 900,
-    title: 'Project Template',
+    title: 'Delegate History',
     webPreferences: {
       preload: paths.preloadScript,
       // Passes the backend's actual runtime origin (only known now, after
@@ -249,6 +249,6 @@ async function stopChildProcesses(): Promise<void> {
 }
 
 function handleStartupFailure(error: unknown): void {
-  console.error('Failed to start Project Template:', error);
+  console.error('Failed to start Delegate History:', error);
   void stopChildProcesses().finally(() => app.quit());
 }

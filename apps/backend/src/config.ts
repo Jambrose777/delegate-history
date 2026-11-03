@@ -5,7 +5,7 @@ import {
   DEFAULT_DATABASE_FILENAME,
   DEFAULT_FRONTEND_ORIGIN,
   DEFAULT_LOCAL_STATE_DIRECTORY,
-} from '@project-template/shared';
+} from '@delegate-history/shared';
 import { resolve } from 'node:path';
 
 import { getFilesDirectory } from './paths.js';

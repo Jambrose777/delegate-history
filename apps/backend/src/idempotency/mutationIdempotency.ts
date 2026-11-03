@@ -1,4 +1,4 @@
-import { MUTATION_IDEMPOTENCY_RETENTION_MS } from '@project-template/shared';
+import { MUTATION_IDEMPOTENCY_RETENTION_MS } from '@delegate-history/shared';
 import { eq, lt } from 'drizzle-orm';
 
 import type { DatabaseConnection } from '../database/client.js';

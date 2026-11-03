@@ -3,7 +3,7 @@
 import {
   LOADING_INDICATOR_DELAY_MS,
   LOADING_INDICATOR_MIN_DURATION_MS,
-} from '@project-template/shared';
+} from '@delegate-history/shared';
 import { useEffect, useRef, useState } from 'react';
 
 // Applies the shared loading component's display timing to a raw

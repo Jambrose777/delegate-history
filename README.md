@@ -1,6 +1,6 @@
-# Project Template
+# Delegate History
 
-Project Template is a baseplate for spinning up new local, single-user applications
+Delegate History is a baseplate for spinning up new local, single-user applications
 quickly: a pnpm workspace with a Next.js frontend, an Express + SQLite/Drizzle backend
 behind an OpenAPI-first contract, and an optional Electron desktop shell with
 multi-laptop cloud-sync support already wired up end to end.
@@ -18,8 +18,8 @@ Commented out until the packaged installers are verified and the release workflo
 push trigger is enabled; until then there's no released asset for these fixed-filename
 links to resolve to.
 
-- [Download for macOS (.dmg)](https://github.com/Jambrose777/project-template/releases/latest/download/project-template-mac-arm64.dmg)
-- [Download for Windows (.exe)](https://github.com/Jambrose777/project-template/releases/latest/download/project-template-win-setup.exe)
+- [Download for macOS (.dmg)](https://github.com/Jambrose777/project-template/releases/latest/download/delegate-history-mac-arm64.dmg)
+- [Download for Windows (.exe)](https://github.com/Jambrose777/project-template/releases/latest/download/delegate-history-win-setup.exe)
 -->
 
 These links point at fixed asset filenames produced by `pnpm package:mac`/
@@ -70,7 +70,7 @@ graph TD
     subgraph Backend["apps/backend (Express)"]
         Routes["Routes"]
         Drizzle["Drizzle ORM"]
-        DB[("SQLite<br/>.data/project-template.sqlite")]
+        DB[("SQLite<br/>.data/delegate-history.sqlite")]
         Routes --> Drizzle --> DB
     end
 
@@ -124,7 +124,7 @@ A healthy response is:
 Open `http://localhost:3000` in a browser to see the frontend's home page, which calls
 the backend's health check and reports whether it is connected.
 
-The local database is created at `.data/project-template.sqlite` by default.
+The local database is created at `.data/delegate-history.sqlite` by default.
 
 To run only one side, use `pnpm dev:backend` or `pnpm dev:frontend`.
 
@@ -200,7 +200,7 @@ The backend supports these environment variables:
 | `PORT`                      | `3001`                                         | Backend HTTP port.                                                                                                  |
 | `FRONTEND_ORIGIN`           | `http://localhost:3000`                        | Origin allowed by CORS.                                                                                             |
 | `APP_DATA_DIRECTORY`        | `.data`                                        | Directory for local application data - can be pointed at a cloud-sync client's folder to share data across laptops. |
-| `DATABASE_FILE`             | `<APP_DATA_DIRECTORY>/project-template.sqlite` | SQLite database path.                                                                                               |
+| `DATABASE_FILE`             | `<APP_DATA_DIRECTORY>/delegate-history.sqlite` | SQLite database path.                                                                                               |
 | `APP_LOCAL_STATE_DIRECTORY` | `.local-state`                                 | Always-local directory (never the cloud-synced `APP_DATA_DIRECTORY`) for automatic backup snapshots.                |
 
 The frontend supports this environment variable:

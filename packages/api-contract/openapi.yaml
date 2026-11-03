@@ -1,8 +1,8 @@
 openapi: 3.1.0
 info:
-  title: Project Template API
+  title: Delegate History API
   version: 0.1.0
-  description: REST API for the local Project Template application.
+  description: REST API for the local Delegate History application.
 servers:
   - url: http://localhost:3001
 paths:

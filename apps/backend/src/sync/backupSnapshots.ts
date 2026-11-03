@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, readdirSync, statSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
 
-import { MAX_RETAINED_BACKUP_SNAPSHOTS } from '@project-template/shared';
+import { MAX_RETAINED_BACKUP_SNAPSHOTS } from '@delegate-history/shared';
 import AdmZip from 'adm-zip';
 
 // Backup snapshots are a plain filesystem-level copy of the SQLite database

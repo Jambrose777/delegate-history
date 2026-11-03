@@ -1,7 +1,7 @@
 import { closeSync, existsSync, openSync, readSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
-import { SYNC_MARKER_FILENAME } from '@project-template/shared';
+import { SYNC_MARKER_FILENAME } from '@delegate-history/shared';
 
 // Whether the configured application data directory is a genuinely new
 // setup, already has a readable database, or shows some trace of prior use

@@ -1,4 +1,4 @@
-# Project Planning — Project Template
+# Project Planning — Delegate History
 
 This doc is the starting point for planning and tracking development. Update it as the
 product direction and backlog evolve for the project built from this template.

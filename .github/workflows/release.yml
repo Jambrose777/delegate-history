@@ -47,7 +47,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build the macOS .dmg
-        run: pnpm --filter @project-template/desktop package:mac
+        run: pnpm --filter @delegate-history/desktop package:mac
 
       - name: Upload the .dmg to the GitHub Release
         uses: softprops/action-gh-release@v2
@@ -78,7 +78,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build the Windows installer
-        run: pnpm --filter @project-template/desktop package:win
+        run: pnpm --filter @delegate-history/desktop package:win
 
       - name: Upload the installer to the GitHub Release
         uses: softprops/action-gh-release@v2

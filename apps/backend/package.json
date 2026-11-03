@@ -1,5 +1,5 @@
 {
-  "name": "@project-template/backend",
+  "name": "@delegate-history/backend",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -12,7 +12,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json"
   },
   "dependencies": {
-    "@project-template/shared": "workspace:*",
+    "@delegate-history/shared": "workspace:*",
     "adm-zip": "0.5.16",
     "better-sqlite3": "13.0.2",
     "cors": "2.8.6",

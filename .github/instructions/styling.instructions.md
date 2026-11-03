@@ -1,5 +1,5 @@
 ---
-description: 'Use when writing, reviewing, or refactoring frontend UI code. Defines the visual design system and styling conventions for project-template.'
+description: 'Use when writing, reviewing, or refactoring frontend UI code. Defines the visual design system and styling conventions for delegate-history.'
 applyTo: 'apps/frontend/**'
 ---
 

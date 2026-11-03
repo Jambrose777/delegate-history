@@ -1,7 +1,7 @@
-import { DEFAULT_BACKEND_ORIGIN } from '@project-template/shared';
+import { DEFAULT_BACKEND_ORIGIN } from '@delegate-history/shared';
 import createClient from 'openapi-fetch';
 
-import type { paths } from '@project-template/api-contract';
+import type { paths } from '@delegate-history/api-contract';
 
 // The packaged desktop app can't know its backend's actual port at build
 // time (it's chosen at runtime - see apps/desktop/src/ports.ts), so its

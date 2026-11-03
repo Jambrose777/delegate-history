@@ -32,7 +32,7 @@ importers:
 
   apps/backend:
     dependencies:
-      '@project-template/shared':
+      '@delegate-history/shared':
         specifier: workspace:*
         version: link:../../packages/shared
       adm-zip:
@@ -108,7 +108,7 @@ importers:
       '@electron/rebuild':
         specifier: 4.2.0
         version: 4.2.0(supports-color@10.2.2)
-      '@project-template/shared':
+      '@delegate-history/shared':
         specifier: workspace:*
         version: link:../../packages/shared
       '@types/node':
@@ -132,7 +132,7 @@ importers:
 
   apps/frontend:
     dependencies:
-      '@project-template/shared':
+      '@delegate-history/shared':
         specifier: workspace:*
         version: link:../../packages/shared
       lucide-react:
@@ -151,7 +151,7 @@ importers:
         specifier: 19.2.8
         version: 19.2.8(react@19.2.8)
     devDependencies:
-      '@project-template/api-contract':
+      '@delegate-history/api-contract':
         specifier: workspace:*
         version: link:../../packages/api-contract
       '@tailwindcss/postcss':

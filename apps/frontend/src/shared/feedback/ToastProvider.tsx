@@ -1,6 +1,6 @@
 'use client';
 
-import { SAVED_TOAST_DURATION_MS } from '@project-template/shared';
+import { SAVED_TOAST_DURATION_MS } from '@delegate-history/shared';
 import { createContext, useCallback, useContext, useMemo, useRef, useState } from 'react';
 
 import { ToastViewport } from './ToastViewport';

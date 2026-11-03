@@ -17,7 +17,7 @@
   drift before relying on this list, since it was captured at one point in time):
   - The frontend header's brand text and its test assertion:
     [AppHeader.tsx](../../../apps/frontend/src/shared/navigation/AppHeader.tsx)'s
-    `"Project Template"` link text and
+    `"Delegate History"` link text and
     [AppHeader.test.tsx](../../../apps/frontend/tests/shared/navigation/AppHeader.test.tsx)'s
     matching assertion.
   - The desktop app's window title and packaging identity (only relevant if story 3
@@ -26,13 +26,13 @@
     [apps/desktop/package.json](../../../apps/desktop/package.json)'s
     `build.productName`/`build.appId`.
   - [docs/planning.md](../../planning.md)'s own top-level heading
-    (`# Project Planning — Project Template`).
+    (`# Project Planning — Delegate History`).
   - [.github/copilot-instructions.md](../../../.github/copilot-instructions.md)'s
     title and `## Project overview` section, which currently describes the generic
     "baseplate for spinning up new local, single-user applications" purpose rather
     than the actual product.
-  - Renaming the `@project-template/*` package scope itself, and the
-    `project-template` mentions in `.github/agents/*.agent.md` and
+  - Renaming the workspace package scope itself, and the project-name mentions in
+    `.github/agents/*.agent.md` and
     `.github/instructions/styling.instructions.md`, is mechanical and already
     covered by story 1 — not duplicated here.
 - This story does not itself decide the desktop app's fate, the design system, or

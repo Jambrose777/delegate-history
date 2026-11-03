@@ -1,4 +1,4 @@
-import { SAVED_TOAST_DURATION_MS } from '@project-template/shared';
+import { SAVED_TOAST_DURATION_MS } from '@delegate-history/shared';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { useRef } from 'react';
 

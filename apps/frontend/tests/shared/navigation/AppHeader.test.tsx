@@ -25,7 +25,7 @@ describe('AppHeader', () => {
   it('links back to the home page', () => {
     render(<AppHeader />);
 
-    const link = screen.getByRole('link', { name: 'Project Template' });
+    const link = screen.getByRole('link', { name: 'Delegate History' });
     expect(link).toHaveAttribute('href', '/');
   });
 });

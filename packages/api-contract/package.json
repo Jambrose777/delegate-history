@@ -1,5 +1,5 @@
 {
-  "name": "@project-template/api-contract",
+  "name": "@delegate-history/api-contract",
   "version": "0.1.0",
   "private": true,
   "type": "module",

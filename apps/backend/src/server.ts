@@ -1,6 +1,6 @@
 import { existsSync, unlinkSync } from 'node:fs';
 
-import { SYNC_MARKER_REFRESH_INTERVAL_MS } from '@project-template/shared';
+import { SYNC_MARKER_REFRESH_INTERVAL_MS } from '@delegate-history/shared';
 import express from 'express';
 
 import { createApp } from './app.js';

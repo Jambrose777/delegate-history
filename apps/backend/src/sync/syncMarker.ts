@@ -2,7 +2,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { hostname } from 'node:os';
 import { join } from 'node:path';
 
-import { SYNC_MARKER_FILENAME, SYNC_MARKER_RECENT_THRESHOLD_MS } from '@project-template/shared';
+import { SYNC_MARKER_FILENAME, SYNC_MARKER_RECENT_THRESHOLD_MS } from '@delegate-history/shared';
 
 // The marker file's shape: which machine last opened the app against this
 // data directory, and when. `os.hostname()` is used as the machine

@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <main className="flex flex-col items-center gap-4 p-8">
-      <h1>Project Template</h1>
+      <h1>Delegate History</h1>
       <p className="text-body text-neutral-100">
         Start building your project here. See{' '}
         <Link href="/health" className="underline">

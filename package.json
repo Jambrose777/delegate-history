@@ -1,5 +1,5 @@
 {
-  "name": "project-template",
+  "name": "delegate-history",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -8,18 +8,18 @@
   },
   "packageManager": "pnpm@11.18.0",
   "scripts": {
-    "build": "pnpm --filter @project-template/shared build && pnpm --filter @project-template/api-contract build && pnpm --filter @project-template/backend build && pnpm --filter @project-template/frontend build && pnpm --filter @project-template/desktop build",
-    "dev": "concurrently -n backend,frontend -c blue,green \"pnpm --filter @project-template/backend dev\" \"pnpm --filter @project-template/frontend dev\"",
-    "dev:backend": "pnpm --filter @project-template/backend dev",
-    "dev:frontend": "pnpm --filter @project-template/frontend dev",
-    "dev:desktop": "pnpm --filter @project-template/desktop dev",
+    "build": "pnpm --filter @delegate-history/shared build && pnpm --filter @delegate-history/api-contract build && pnpm --filter @delegate-history/backend build && pnpm --filter @delegate-history/frontend build && pnpm --filter @delegate-history/desktop build",
+    "dev": "concurrently -n backend,frontend -c blue,green \"pnpm --filter @delegate-history/backend dev\" \"pnpm --filter @delegate-history/frontend dev\"",
+    "dev:backend": "pnpm --filter @delegate-history/backend dev",
+    "dev:frontend": "pnpm --filter @delegate-history/frontend dev",
+    "dev:desktop": "pnpm --filter @delegate-history/desktop dev",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
-    "test": "pnpm build && pnpm --filter @project-template/backend test && pnpm --filter @project-template/frontend test",
-    "typecheck": "pnpm --filter @project-template/shared typecheck && pnpm --filter @project-template/api-contract typecheck && pnpm --filter @project-template/backend typecheck && pnpm --filter @project-template/frontend typecheck && pnpm --filter @project-template/desktop typecheck",
-    "package:mac": "pnpm --filter @project-template/desktop package:mac",
-    "package:win": "pnpm --filter @project-template/desktop package:win",
+    "test": "pnpm build && pnpm --filter @delegate-history/backend test && pnpm --filter @delegate-history/frontend test",
+    "typecheck": "pnpm --filter @delegate-history/shared typecheck && pnpm --filter @delegate-history/api-contract typecheck && pnpm --filter @delegate-history/backend typecheck && pnpm --filter @delegate-history/frontend typecheck && pnpm --filter @delegate-history/desktop typecheck",
+    "package:mac": "pnpm --filter @delegate-history/desktop package:mac",
+    "package:win": "pnpm --filter @delegate-history/desktop package:win",
     "story:done": "node scripts/mark-story-done.mjs"
   },
   "devDependencies": {

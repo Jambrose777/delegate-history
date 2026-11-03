@@ -1,5 +1,5 @@
 {
-  "name": "@project-template/desktop",
+  "name": "@delegate-history/desktop",
   "version": "0.1.2",
   "private": true,
   "type": "module",
@@ -14,7 +14,7 @@
     "package:win": "pnpm package:prepare --platform=win32 --arch=x64 && electron-builder --win"
   },
   "devDependencies": {
-    "@project-template/shared": "workspace:*",
+    "@delegate-history/shared": "workspace:*",
     "@electron/rebuild": "4.2.0",
     "@types/node": "26.1.2",
     "electron": "43.4.0",
@@ -24,8 +24,8 @@
     "typescript": "5.9.3"
   },
   "build": {
-    "appId": "com.example.projecttemplate",
-    "productName": "Project Template",
+    "appId": "com.example.delegatehistory",
+    "productName": "Delegate History",
     "asar": true,
     "npmRebuild": false,
     "directories": {
@@ -85,7 +85,7 @@
       "category": "public.app-category.utilities",
       "icon": "build/icon.png",
       "identity": null,
-      "artifactName": "project-template-mac-${arch}.${ext}"
+      "artifactName": "delegate-history-mac-${arch}.${ext}"
     },
     "win": {
       "target": [
@@ -101,7 +101,7 @@
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
-      "artifactName": "project-template-win-setup.${ext}"
+      "artifactName": "delegate-history-win-setup.${ext}"
     }
   }
 }

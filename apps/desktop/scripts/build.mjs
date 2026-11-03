@@ -1,7 +1,7 @@
 // Bundles the
 // Electron main process and preload script with esbuild instead of only
 // transpiling with `tsc`, inlining the desktop package's own runtime
-// dependencies (`get-port`, `@project-template/shared`) directly into
+// dependencies (`get-port`, `@delegate-history/shared`) directly into
 // `dist/main.js`/`dist/preload.cjs`. This keeps the packaged app free of any
 // runtime `node_modules` requirement for the desktop package itself, which in
 // turn keeps `apps/desktop/package.json`'s "dependencies" empty - avoiding

@@ -11,7 +11,7 @@ export default {
     // which Jest's CommonJS runtime can't parse without an extra transform.
     // Resolving straight to its TypeScript source lets the existing `@swc/jest`
     // transform (below) handle it the same as the backend's own source files.
-    '^@project-template/shared$': '<rootDir>/../../packages/shared/src/index.ts',
+    '^@delegate-history/shared$': '<rootDir>/../../packages/shared/src/index.ts',
   },
   testEnvironment: 'node',
   testMatch: ['<rootDir>/tests/**/*.test.ts'],

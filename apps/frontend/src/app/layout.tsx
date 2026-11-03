@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Project Template',
+  title: 'Delegate History',
   description: 'A baseplate for spinning up new projects fast.',
 };
 

@@ -30,7 +30,7 @@ export function AppHeader() {
         className="flex items-center gap-2 font-bold text-neutral-100 hover:brightness-110"
       >
         <Home className="size-5" />
-        Project Template
+        Delegate History
       </Link>
       {/* The current page's title, centered in the bar independently of the
           home link's width. Absolutely positioned so it stays centered on

@@ -77,7 +77,7 @@ if (existsSync(releaseDirectory)) {
 }
 
 // `pnpm deploy --legacy` leaves a self-referential symlink at
-// `node_modules/.pnpm/node_modules/@project-template/<package>` whose
+// `node_modules/.pnpm/node_modules/@delegate-history/<package>` whose
 // relative target (e.g. `../../../../../../../backend`) is computed for its
 // position inside this staging directory, where it correctly resolves back
 // to the original `apps/<package>` inside the monorepo. But electron-builder
@@ -93,7 +93,7 @@ function removeSelfReferentialSymlink(packageStagingDirectory, packageName) {
   rmSync(
     resolve(
       packageStagingDirectory,
-      'node_modules/.pnpm/node_modules/@project-template',
+      'node_modules/.pnpm/node_modules/@delegate-history',
       packageName,
     ),
     { force: true },
@@ -105,7 +105,7 @@ run(
   'pnpm',
   [
     '--filter',
-    '@project-template/backend',
+    '@delegate-history/backend',
     'deploy',
     resolve(stagingDirectory, 'backend'),
     '--prod',
@@ -125,7 +125,7 @@ run(
   'pnpm',
   [
     '--filter',
-    '@project-template/frontend',
+    '@delegate-history/frontend',
     'deploy',
     resolve(stagingDirectory, 'frontend'),
     '--prod',

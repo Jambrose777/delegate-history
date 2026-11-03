@@ -1,7 +1,7 @@
 import {
   LOADING_INDICATOR_DELAY_MS,
   LOADING_INDICATOR_MIN_DURATION_MS,
-} from '@project-template/shared';
+} from '@delegate-history/shared';
 import { act, renderHook } from '@testing-library/react';
 
 import { useDelayedLoading } from '@/shared/feedback';

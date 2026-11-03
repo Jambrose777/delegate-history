@@ -1,4 +1,4 @@
-import { DEFAULT_BACKEND_HOST } from '@project-template/shared';
+import { DEFAULT_BACKEND_HOST } from '@delegate-history/shared';
 import { type ChildProcess, spawn } from 'node:child_process';
 import { join } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';

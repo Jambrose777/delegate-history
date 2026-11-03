@@ -1,8 +1,8 @@
-# Copilot Instructions — project-template
+# Copilot Instructions — delegate-history
 
 ## Project overview
 
-`project-template` is a baseplate for spinning up new local, single-user
+`delegate-history` is a baseplate for spinning up new local, single-user
 applications: a pnpm workspace with a working Next.js frontend, an Express +
 SQLite/Drizzle backend behind an OpenAPI-first contract, and an Electron desktop
 shell with multi-laptop cloud-sync support already scaffolded end to end.
@@ -22,7 +22,7 @@ shell with multi-laptop cloud-sync support already scaffolded end to end.
 - **Database:** SQLite with Drizzle ORM
   ([apps/backend/src/database/schema.ts](../apps/backend/src/database/schema.ts));
   migrations live under `apps/backend/drizzle/` and are generated with
-  `pnpm --filter @project-template/backend db:generate`
+  `pnpm --filter @delegate-history/backend db:generate`
 - **Deployment:** local single-user application without authentication
 - **Mutation idempotency:** a generic `mutation_idempotency` table plus
   lookup/save/prune helpers
