@@ -14,9 +14,9 @@ Download the latest desktop build from the
 [GitHub Releases page](https://github.com/Jambrose777/project-template/releases/latest):
 
 <!--
-Commented out until story 5 (docs/stories/ready-for-dev/0005-enable-and-test-release-workflow.md)
-verifies the packaged installers and re-enables the release workflow's push trigger --
-until then there's no released asset for these fixed-filename links to resolve to.
+Commented out until the packaged installers are verified and the release workflow's
+push trigger is enabled; until then there's no released asset for these fixed-filename
+links to resolve to.
 
 - [Download for macOS (.dmg)](https://github.com/Jambrose777/project-template/releases/latest/download/project-template-mac-arm64.dmg)
 - [Download for Windows (.exe)](https://github.com/Jambrose777/project-template/releases/latest/download/project-template-win-setup.exe)
@@ -87,7 +87,7 @@ graph TD
   and talk over HTTP on `localhost`.
 - In the packaged desktop app, Electron's main process spawns the frontend and
   backend as managed local child processes instead — see story 3
-  ([docs/stories/ready-for-dev/0003-review-overall-architecture.md](docs/stories/ready-for-dev/0003-review-overall-architecture.md))
+  ([docs/stories/0003-review-overall-architecture.md](docs/stories/0003-review-overall-architecture.md))
   for deciding whether a given project needs this at all.
 - `packages/api-contract`'s `openapi.yaml` is the source of truth for the API shape:
   it generates the frontend's typed client and validates every backend request/
@@ -154,14 +154,13 @@ pnpm package:win    # Windows NSIS installer, output to apps/desktop/release/
 Packaging can take a few minutes on first run. There is no auto-updater; each build
 produces a standalone installer.
 
-The release workflow is disabled by default in this template (see
-[story 5](docs/stories/ready-for-dev/0005-enable-and-test-release-workflow.md)) — its
-`push` tag trigger is commented out in
+The release workflow is disabled by default in this template — its `push` tag trigger
+is commented out in
 [.github/workflows/release.yml](.github/workflows/release.yml) until the packaged
 installers have been verified on each platform. Until then, publish a release by
 running the workflow manually via `workflow_dispatch` from the GitHub Actions tab,
-supplying an existing tag name. Once story 5 is done, publishing a release is as
-simple as pushing a tag matching `v*.*.*`:
+supplying an existing tag name. Once both installers are verified, publishing a release
+is as simple as pushing a tag matching `v*.*.*`:
 
 ```sh
 git tag v0.1.0

@@ -20,7 +20,7 @@
     "typecheck": "pnpm --filter @project-template/shared typecheck && pnpm --filter @project-template/api-contract typecheck && pnpm --filter @project-template/backend typecheck && pnpm --filter @project-template/frontend typecheck && pnpm --filter @project-template/desktop typecheck",
     "package:mac": "pnpm --filter @project-template/desktop package:mac",
     "package:win": "pnpm --filter @project-template/desktop package:win",
-    "story:done": "node scripts/move-story-to-done.mjs"
+    "story:done": "node scripts/mark-story-done.mjs"
   },
   "devDependencies": {
     "@eslint/js": "9.39.5",

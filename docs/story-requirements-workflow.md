@@ -3,17 +3,13 @@
 ## Canonical sources
 
 - `docs/planning.md` holds the product vision, tech stack, and definition of done.
-  Stories themselves live one-per-file under `docs/stories/`, in three bucket folders:
-  `docs/stories/needs-refinement/` (requirements not yet fully defined),
-  `docs/stories/ready-for-dev/` (requirements complete, implementation not yet done),
-  and `docs/stories/completed/` (implemented). `docs/stories/README.md` is the index of
-  every story file and its current bucket — check it, and the active story's file,
+  Stories live as individual files directly under `docs/stories/`. Each story's
+  `**Status:**` is one of `Needs Refinement`, `Ready for Dev`, or `Completed`, and the
+  index at `docs/stories/README.md` mirrors it; check the index and active story file
   before asking questions.
-- Each story file carries a `**Status:**` marker (`Not started`, `In progress`, or
-  `Done`) tracking implementation progress in place. This is a separate axis from the
-  requirements-writing bucket (which folder the file lives in); do not delete or split
-  out a story's content when it reaches `Done` — later stories keep citing its
-  confirmed contracts.
+- Each story file carries one `**Status:**` marker (`Needs Refinement`, `Ready for Dev`,
+  or `Completed`), mirrored in the index. Do not delete, move, or split out a story when
+  it reaches `Completed` — later stories keep citing its confirmed contracts.
 - `.github/copilot-instructions.md` records the stack and onboarding guidance.
 - `.github/instructions/coding-conventions.instructions.md` requires all
   application-owned defaults to live in one shared canonical `defaults.ts`. Do not
@@ -21,18 +17,18 @@
 
 ## Interview workflow
 
-- Develop technical requirements story by story, working through
-  `docs/stories/needs-refinement/` in ascending story-number order unless the user
-  directs otherwise, through one question at a time.
+- Develop technical requirements story by story, working through stories marked
+  `Needs Refinement` in ascending story-number order unless the user directs otherwise,
+  through one question at a time.
 - Ask a concrete multiple-choice question with a recommended option and short tradeoff
   descriptions; allow a freeform correction.
 - Treat user corrections as authoritative even when they reverse an earlier answer.
-- After every answer, immediately patch the active story's own file under
-  `docs/stories/needs-refinement/`, run focused validation on that file, briefly report
-  what changed, and ask the next single question.
-- When a story's acceptance criteria and technical requirements are both fully
-  resolved (no remaining TBDs), move its file from `docs/stories/needs-refinement/` into
-  `docs/stories/ready-for-dev/` and update its row in `docs/stories/README.md`.
+- After every answer, immediately patch the active story's own file directly under
+  `docs/stories/`, run focused validation on that file, briefly report what changed, and
+  ask the next single question.
+- When a story's acceptance criteria and technical requirements are both fully resolved
+  (no remaining TBDs), update its status to `Ready for Dev` in the story and index; keep
+  its file in place.
 - Run `pnpm format` after documentation or code edits that it supports; use
   `pnpm format:check` when a non-mutating formatting check is needed.
 - Keep behavioral outcomes under `#### Acceptance criteria` and implementation, API,
@@ -57,20 +53,16 @@
 
 ## Current stopping point
 
-This is a fresh template instance with five baseline setup stories already fully
-specified in `docs/stories/ready-for-dev/` (rename the project, write the product
-vision, review the overall architecture — including the desktop app decision, review
-the design system, and enable the release workflow) and nothing yet in
-`docs/stories/needs-refinement/`. Resume technical-requirements questions with the
-lowest-numbered story file in `docs/stories/needs-refinement/` (check
-`docs/stories/README.md` for the current list) unless the user directs otherwise.
+This template instance has baseline setup stories in `docs/stories/`; consult
+`docs/stories/README.md` for their current status. Resume technical-requirements
+questions with the lowest-numbered story marked `Needs Refinement` unless the user
+directs otherwise.
 Update this section as the new project's own backlog develops.
 
 ## Consistency notes
 
 - Existing requirements may contain cross-story API and mutation rules. Before adding a
-  new requirement, search story files under `docs/stories/completed/` and
-  `docs/stories/ready-for-dev/` for affected endpoints, lock/permission behavior,
-  toast or loading behavior, idempotency, and optimistic rollback to avoid
-  contradictions.
+  new requirement, search story files in `docs/stories/` for affected endpoints,
+  lock/permission behavior, toast or loading behavior, idempotency, and optimistic
+  rollback to avoid contradictions.
 - Validate Markdown after every patch with workspace diagnostics.

@@ -48,15 +48,14 @@ shell with multi-laptop cloud-sync support already scaffolded end to end.
     since a packaged/branded Electron executable always relaunches itself as the
     full app rather than running as plain Node when given a script path via argv —
     unlike the unpacked dev Electron binary, where that heuristic works implicitly.
-  - See [docs/stories/ready-for-dev/0003-review-overall-architecture.md](../docs/stories/ready-for-dev/0003-review-overall-architecture.md)
+  - See [docs/stories/0003-review-overall-architecture.md](../docs/stories/0003-review-overall-architecture.md)
     for deciding early whether a given project keeps this app at all.
 - **Release automation:** [.github/workflows/release.yml](workflows/release.yml)
   builds the macOS `.dmg` and Windows NSIS installer in CI and uploads them as assets
   on the matching GitHub Release. Disabled by default in this template — the `push`
   tag trigger is commented out, so it currently only runs via manual
-  `workflow_dispatch` against an existing tag, until
-  [docs/stories/ready-for-dev/0005-enable-and-test-release-workflow.md](../docs/stories/ready-for-dev/0005-enable-and-test-release-workflow.md)
-  verifies the packaged installers and re-enables the `push` trigger.
+  `workflow_dispatch` against an existing tag, until the packaged installers have
+  been verified and the `push` trigger is re-enabled.
   `apps/desktop/package.json`'s
   `build.mac.artifactName`/`build.nsis.artifactName` fix each installer's filename (no
   embedded version number) so the root [README.md](../README.md)'s
@@ -103,10 +102,10 @@ shell with multi-laptop cloud-sync support already scaffolded end to end.
 - Planning and requirements live in [docs/](../docs). Check
   [docs/planning.md](../docs/planning.md) before starting new work — it holds the
   product vision, tech stack, and definition of done.
-- Stories live one-per-file under [docs/stories/](../docs/stories/), in three bucket
-  folders: `needs-refinement/`, `ready-for-dev/`, and `completed/`. The index at
-  [docs/stories/README.md](../docs/stories/README.md) lists every story file and its
-  current bucket — check it, and the active story's file, before starting new work.
+- Stories live as one file each directly under [docs/stories/](../docs/stories/).
+  Each story's `**Status:**` is `Needs Refinement`, `Ready for Dev`, or `Completed`;
+  [docs/stories/README.md](../docs/stories/README.md) mirrors those statuses. Check it,
+  and the active story's file, before starting new work.
 - The story-derived endpoint index is [docs/api-endpoints.md](../docs/api-endpoints.md).
   Keep it synchronized with explicitly defined routes in the story files under
   `docs/stories/`; [packages/api-contract/openapi.yaml](../packages/api-contract/openapi.yaml)
@@ -122,10 +121,10 @@ shell with multi-laptop cloud-sync support already scaffolded end to end.
   Apply them whenever writing, reviewing, or refactoring application code.
 - Always add helpful comments to code blocks, especially to explain their purpose,
   control flow, and non-obvious implementation decisions.
-- Prefer small, incremental changes. Add new stories as new files in
-  `docs/stories/needs-refinement/` (updating the index at
-  [docs/stories/README.md](../docs/stories/README.md)) unless the user specifies a
-  different bucket.
+- Prefer small, incremental changes. Add new story files directly in `docs/stories/`
+  with `**Status:** Needs Refinement` and add a matching row to
+  [docs/stories/README.md](../docs/stories/README.md). Use `Ready for Dev` when
+  requirements are fully known.
 - Run `pnpm format` after repository edits that Prettier supports; use
   `pnpm format:check` for non-mutating formatting verification. Run
   `pnpm typecheck`, `pnpm lint`, and `pnpm test` before considering a change done.

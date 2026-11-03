@@ -1,6 +1,6 @@
 # 4. Review and adjust the design system for this project
 
-**Status:** Not started
+**Status:** Ready for Dev
 
 #### Acceptance criteria
 

@@ -1,6 +1,6 @@
 # 1. Rename the project from `project-template`
 
-**Status:** Not started
+**Status:** Ready for Dev
 
 #### Acceptance criteria
 

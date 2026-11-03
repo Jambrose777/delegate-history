@@ -1,6 +1,6 @@
 # 3. Review the overall architecture and decide on changes
 
-**Status:** Not started
+**Status:** Ready for Dev
 
 #### Acceptance criteria
 
@@ -53,9 +53,9 @@
   there would just be noise.
 - Any change that requires actual implementation work (not just a doc update or the
   desktop-app removal above) is captured as one or more new story files in
-  [docs/stories/needs-refinement/](../needs-refinement/), with the index at
-  [docs/stories/README.md](../README.md) updated to match, rather than being
-  implemented inline as part of this review.
+  new story files directly in [docs/stories/](.) with the index at
+  [docs/stories/README.md](README.md) updated to match, rather than being implemented
+  inline as part of this review.
 - If no changes are needed anywhere (including keeping the desktop app as-is), this
   story is marked done with a note in its own file confirming the architecture was
   reviewed and kept as-is.

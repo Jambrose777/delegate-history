@@ -39,7 +39,7 @@ export default tseslint.config(
   ...frontendOnly(nextCoreWebVitals),
   ...frontendOnly(nextTypescript),
   {
-    // Plain-JS repo automation scripts (e.g. scripts/move-story-to-done.mjs,
+    // Plain-JS repo automation scripts (e.g. scripts/mark-story-done.mjs,
     // apps/desktop/scripts/prepare-package.mjs) aren't covered by the
     // TS-aware blocks above (which quiet `no-undef` because the TypeScript
     // compiler already flags undefined names), so declare the Node.js

@@ -1,6 +1,6 @@
 # 2. Write the product vision and update the top-level docs
 
-**Status:** Not started
+**Status:** Ready for Dev
 
 #### Acceptance criteria
 
@@ -37,7 +37,7 @@
     covered by story 1 — not duplicated here.
 - This story does not itself decide the desktop app's fate, the design system, or
   the wider architecture — those are covered by the sibling architecture-review
-  story (story 3) in this bucket.
+  story (story 3) in the backlog.
 
 #### Technical requirements
 

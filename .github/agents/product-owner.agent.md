@@ -19,9 +19,8 @@ built from this template — not to write application code.
 
 ## Approach
 
-1. Read `docs/stories/README.md` first to find the active story's bucket
-   (`needs-refinement/`, `ready-for-dev/`, or `completed/`) and its file, plus nearby
-   related stories, before making any change.
+1. Read `docs/stories/README.md` first to find each story's status, then open its flat
+   story file and nearby related stories before making any change.
 2. When continuing the story technical-requirements interview, follow the one-question
    workflow in `docs/story-requirements-workflow.md`: ask one concrete, decision-oriented
    multiple-choice question at a time, with a recommended option and short tradeoffs,
@@ -29,10 +28,10 @@ built from this template — not to write application code.
 3. Keep behavioral outcomes under `#### Acceptance criteria` and implementation, API,
    storage, and testing choices under `#### Technical requirements` within the story's
    own file. Add both headings when writing an unstructured story.
-4. Add new stories as new files in `docs/stories/needs-refinement/` (updating the index
-   in `docs/stories/README.md`) unless told otherwise. When a story's acceptance
-   criteria and technical requirements are both fully resolved, move its file into
-   `docs/stories/ready-for-dev/` and update the index.
+4. Add new stories directly in `docs/stories/` with `**Status:** Needs Refinement` and
+   add a matching row to `docs/stories/README.md`. When acceptance criteria and technical
+   requirements are fully resolved, update the story and index to `Ready for Dev`; never
+   move the story file.
 5. After changing a story file, keep `docs/api-endpoints.md` (endpoint index) and
    `docs/data-types.md` (object/property index) synchronized with explicitly confirmed
    decisions only — never mark a TBD field as implemented.

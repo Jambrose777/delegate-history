@@ -55,40 +55,29 @@ TBD. Replace this section with the new project's actual product vision once deci
 
 ## Story backlog
 
-Stories live one-per-file under [docs/stories/](stories/), organized into three bucket
-folders: [`completed/`](stories/completed/), [`ready-for-dev/`](stories/ready-for-dev/),
-and [`needs-refinement/`](stories/needs-refinement/). The index at
-[docs/stories/README.md](stories/README.md) lists every story file and its current
-bucket — check it, and the active story's file, before starting new work.
+Stories live as individual files directly under [docs/stories/](stories/). The index at
+[docs/stories/README.md](stories/README.md) lists each story's status and links to its
+file — check it, and the active story's file, before starting new work.
 
 Each story file keeps behavioral outcomes under a `#### Acceptance criteria` heading and
 implementation, API, storage, and testing choices under a separate `#### Technical
 requirements` heading, defined as decisions are made.
 
-Each story file also carries a `**Status:**` marker of `Not started`, `In progress`, or
-`Done`, tracking implementation progress in place. This is independent from the
-requirements-writing bucket (which folder the file lives in) and from the
-requirements-writing progress tracked in
-[story-requirements-workflow.md](story-requirements-workflow.md); a story can have
-complete acceptance criteria and technical requirements (i.e. live in
-`ready-for-dev/`) while its status is still `Not started`. Update the marker in place
-as work progresses. When a story becomes `Done`, append the completion date and time in
-parentheses, e.g. `Done (2026-08-17 12:00 EDT)`, move its file into
-[`completed/`](stories/completed/), and update the row in
-[docs/stories/README.md](stories/README.md).
+Each story file carries a single `**Status:**` marker, which is mirrored in the index.
+Use `Needs Refinement` while requirements are being defined, `Ready for Dev` when the
+story can be implemented, and `Completed` when it is done. Update the marker and index
+row together as the story progresses. Story files stay in place.
 
-Add new stories as new files in [`needs-refinement/`](stories/needs-refinement/),
-following the same format, starting with `**Status:** Not started` and `TBD`
-acceptance criteria and technical requirements, then add a row to
-[docs/stories/README.md](stories/README.md). Skip straight to
-[`ready-for-dev/`](stories/ready-for-dev/) only when the story's requirements are
-already fully known.
+Add new story files directly under [docs/stories/](stories/), following the same
+format, starting with `**Status:** Needs Refinement` and `TBD` acceptance criteria and
+technical requirements, then add a matching row to
+[docs/stories/README.md](stories/README.md). Use `Ready for Dev` only when the story's
+requirements are fully known.
 
 ## Definition of done (draft)
 
 - Story's acceptance criteria are all met.
 - No console errors/warnings introduced.
 - Basic tests added/updated if a test setup exists.
-- The story's `**Status:**` marker is updated to `Done`, its file is moved from
-  `ready-for-dev/` into [`completed/`](stories/completed/), and
+- The story's `**Status:**` marker is updated to `Completed`, and
   [docs/stories/README.md](stories/README.md) is updated to match.
