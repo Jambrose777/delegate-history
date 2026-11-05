@@ -16,3 +16,5 @@ out/
 # and are far too large/machine-specific to commit.
 apps/desktop/.staging/
 apps/desktop/release/
+docs/discovery/wca-developer-database-dump.sql
+docs/discovery/wca-developer-database-dump.zip
