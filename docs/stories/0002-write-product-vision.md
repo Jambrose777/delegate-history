@@ -1,6 +1,6 @@
 # 2. Write the product vision and update the top-level docs
 
-**Status:** Ready for Dev
+**Status:** Completed
 
 #### Acceptance criteria
 
@@ -15,22 +15,19 @@
   instead of the actual product is identified and updated to match, or explicitly
   left as a follow-up TBD if out of scope for this pass. Found so far (re-check for
   drift before relying on this list, since it was captured at one point in time):
-  - The frontend header's brand text and its test assertion:
-    [AppHeader.tsx](../../../apps/frontend/src/shared/navigation/AppHeader.tsx)'s
-    `"Delegate History"` link text and
-    [AppHeader.test.tsx](../../../apps/frontend/tests/shared/navigation/AppHeader.test.tsx)'s
-    matching assertion.
-  - The desktop app's window title and packaging identity (only relevant if story 3
-    keeps the desktop app): [main.ts](../../../apps/desktop/src/main.ts)'s
-    `BrowserWindow` `title`, and
-    [apps/desktop/package.json](../../../apps/desktop/package.json)'s
-    `build.productName`/`build.appId`.
-  - [docs/planning.md](../../planning.md)'s own top-level heading
-    (`# Project Planning — Delegate History`).
-  - [.github/copilot-instructions.md](../../../.github/copilot-instructions.md)'s
-    title and `## Project overview` section, which currently describes the generic
-    "baseplate for spinning up new local, single-user applications" purpose rather
-    than the actual product.
+  - The root [README.md](../../../README.md), [docs/planning.md](../../planning.md),
+    and [.github/copilot-instructions.md](../../../.github/copilot-instructions.md)
+    now describe the WCA delegate-history reconstruction product.
+  - The frontend metadata and home-page placeholder copy are now product-specific.
+  - The frontend header's `"Delegate History"` link and its test assertion already
+    matched the product name, so they remain unchanged.
+  - The desktop window title and `build.productName` also already match. The
+    `build.appId` is still `com.example.delegatehistory`; decide its production
+    identifier in story 3 if that review keeps the desktop app.
+  - Generic template-purpose descriptions in the developer/product-owner agent
+    instructions and styling instructions have been updated to describe this product.
+  - The planning document's top-level heading (`# Project Planning — Delegate
+History`) already matched and remains unchanged.
   - Renaming the workspace package scope itself, and the project-name mentions in
     `.github/agents/*.agent.md` and
     `.github/instructions/styling.instructions.md`, is mechanical and already

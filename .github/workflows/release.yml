@@ -1,11 +1,10 @@
 name: Release desktop app
 
-# Builds and publishes the macOS and Windows desktop installers. Disabled by default
-# for a new project built from this template: the `push` tag trigger is commented out
-# below, so this only runs via a manual workflow_dispatch against an existing tag,
-# until the project completes the early backlog story for enabling and testing this
-# workflow's output (the actual packaged executables) end to end. Once that story is
-# done, uncomment the `push` trigger below to resume automatic releases on tag push.
+# Builds and publishes the macOS and Windows desktop installers. The `push` tag
+# trigger is commented out below, so this currently runs only via manual
+# workflow_dispatch against an existing tag until the packaged executables have been
+# verified end to end. Once verified, uncomment the `push` trigger to resume automatic
+# releases on tag push.
 # This automates what would otherwise be a manual `pnpm package:mac`/`pnpm package:win`
 # + hand-upload step, and keeps the README's fixed-filename download links
 # (apps/desktop/package.json's `build.mac.artifactName`/`build.nsis.artifactName`)

@@ -1,11 +1,17 @@
 # Project Planning — Delegate History
 
-This doc is the starting point for planning and tracking development. Update it as the
-product direction and backlog evolve for the project built from this template.
+This doc is the starting point for planning and tracking Delegate History. Update it as
+the product direction and backlog evolve.
 
 ## Product vision
 
-TBD. Replace this section with the new project's actual product vision once decided.
+Delegate History is a collaborative research and review tool for the team reconstructing
+historical World Cube Association (WCA) delegate records missing from the WCA website.
+WCA began retaining delegate history on the website around 2024, leaving earlier
+appointments and role changes incomplete. The application brings together WCA reference
+data and historical evidence, including spreadsheets and email digests, so contributors
+can review and correct date histories, approve records, compare them with current WCA
+data, and generate migration files for submission to WCA.
 
 ## Tech stack
 
@@ -29,12 +35,11 @@ TBD. Replace this section with the new project's actual product vision once deci
   are spawned with `ELECTRON_RUN_AS_NODE: '1'` in their `env`, since a packaged/branded
   Electron executable (unlike the unpacked dev binary) always relaunches itself as the
   full app rather than running as plain Node when given a script path via argv. See
-  the early backlog story deciding whether to keep the desktop app at all for a given
-  project built from this template.
+  story 3 for reviewing whether Delegate History needs the desktop app.
 - Release automation: [.github/workflows/release.yml](../.github/workflows/release.yml)
   builds the macOS `.dmg` and Windows NSIS installer in CI (on `macos-latest`/
   `windows-latest` GitHub-hosted runners) and uploads them as assets on the matching
-  GitHub Release. Disabled by default in this template — the `push` tag trigger is
+  GitHub Release. Disabled for now — the `push` tag trigger is
   commented out, so it currently only runs via manual `workflow_dispatch` against an
   existing tag, until the early backlog story for enabling/testing this workflow
   verifies the packaged installers and re-enables the `push` trigger.

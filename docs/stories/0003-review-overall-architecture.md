@@ -4,13 +4,13 @@
 
 #### Acceptance criteria
 
-- Once the product vision (story 2) is written, the starting architecture described
+- Once the product vision (story 2) is written, the current architecture described
   in [docs/planning.md](../../planning.md)'s `## Tech stack` section and the
   [README.md](../../../README.md) architecture table/diagram is reviewed against the
   new product's actual needs, covering at minimum:
   - Whether the REST + OpenAPI-first contract, SQLite/Drizzle, and Express/Next.js
-    stack still fit, or whether the product needs something the template doesn't
-    provide (e.g. a different database engine, background jobs, external
+    stack still fit, or whether the product needs something the current architecture
+    doesn't provide (e.g. a different database engine, background jobs, external
     integrations, file storage beyond local files).
   - Whether "no authentication, local single-user only" still holds, or the product
     needs auth/multi-user support.
@@ -41,7 +41,7 @@
     [docs/planning.md](../../planning.md) is updated to match, since this is a real
     change.
   - If the project does need a desktop app, the scaffolding is kept as-is, since the
-    template already ships the full desktop/sync scaffolding working end to end —
+    current application already has working desktop/sync scaffolding —
     no `docs/planning.md` edit is needed for this outcome.
 - The design system review (story 4) is treated as a separate, sibling story and is
   not duplicated here.

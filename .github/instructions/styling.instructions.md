@@ -23,10 +23,9 @@ sections as decided.
   not add a headless/component UI library (e.g. Radix, shadcn) for dialog semantics,
   focus trapping, or similar behavior — implement it directly.
 - A living visual reference of every token and documented UI pattern renders at the
-  `/style-guide` route (`apps/frontend/src/app/style-guide/page.tsx`). It's the same
-  starting basis for every project built from this template — keep it in sync
-  whenever tokens or conventions change, and see the early backlog story for
-  reviewing/adjusting it for a specific project's needs.
+  `/style-guide` route (`apps/frontend/src/app/style-guide/page.tsx`). Keep it in sync
+  whenever tokens or conventions change; see story 4 for reviewing and adjusting it
+  for Delegate History's needs.
 
 ## Color palette
 

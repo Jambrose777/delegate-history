@@ -53,7 +53,7 @@
 
 ## Current stopping point
 
-This template instance has baseline setup stories in `docs/stories/`; consult
+This repository includes baseline setup stories in `docs/stories/`; consult
 `docs/stories/README.md` for their current status. Resume technical-requirements
 questions with the lowest-numbered story marked `Needs Refinement` unless the user
 directs otherwise.

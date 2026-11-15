@@ -1,12 +1,9 @@
 # Delegate History
 
-Delegate History is a baseplate for spinning up new local, single-user applications
-quickly: a pnpm workspace with a Next.js frontend, an Express + SQLite/Drizzle backend
-behind an OpenAPI-first contract, and an optional Electron desktop shell with
-multi-laptop cloud-sync support already wired up end to end.
-
-This template originated as a capstone project for learning and utilizing AI
-(GitHub Copilot).
+Delegate History is a collaborative tool for reconstructing historical World Cube
+Association (WCA) delegate records missing from the WCA website. It helps contributors
+review and correct date histories using WCA reference data and historical evidence,
+approve records, and prepare migration files for submission to WCA.
 
 ## Download
 
@@ -48,7 +45,7 @@ This repository is a pnpm workspace organized into applications and shared packa
 
 The frontend calls the backend using a typed client generated from the OpenAPI
 contract. The backend currently exposes `GET /health`, which verifies that both the API
-and database are available, and the frontend's home page displays that status.
+and database are available; the frontend's `/health` page displays that status.
 
 ```mermaid
 graph TD
@@ -154,7 +151,7 @@ pnpm package:win    # Windows NSIS installer, output to apps/desktop/release/
 Packaging can take a few minutes on first run. There is no auto-updater; each build
 produces a standalone installer.
 
-The release workflow is disabled by default in this template — its `push` tag trigger
+The release workflow is disabled for now — its `push` tag trigger
 is commented out in
 [.github/workflows/release.yml](.github/workflows/release.yml) until the packaged
 installers have been verified on each platform. Until then, publish a release by

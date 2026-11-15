@@ -4,13 +4,13 @@
 
 #### Acceptance criteria
 
-- Early in a new project built from this template, the starting design system —
-  the `@theme` tokens in
-  [globals.css](../../../apps/frontend/src/app/globals.css), the conventions in
+- Early in Delegate History's development, the existing design system — the
+  `@theme` tokens in [globals.css](../../../apps/frontend/src/app/globals.css), the
+  conventions in
   [styling.instructions.md](../../../.github/instructions/styling.instructions.md),
   and the `/style-guide` reference page
-  (`apps/frontend/src/app/style-guide/page.tsx`) — is reviewed against the new
-  project's actual product and adjusted as needed: color palette, typography scale,
+  (`apps/frontend/src/app/style-guide/page.tsx`) — is reviewed against the product's
+  needs and adjusted as needed: color palette, typography scale,
   spacing/breakpoint/radius tokens, and any of the documented interactive-component
   conventions (modals, toasts, tooltips, forms, drag-and-drop, virtualization).
 - Any token or convention that changes is updated consistently in all three places

@@ -2,10 +2,13 @@
 
 ## Project overview
 
-`delegate-history` is a baseplate for spinning up new local, single-user
-applications: a pnpm workspace with a working Next.js frontend, an Express +
-SQLite/Drizzle backend behind an OpenAPI-first contract, and an Electron desktop
-shell with multi-laptop cloud-sync support already scaffolded end to end.
+`delegate-history` is a collaborative tool for reconstructing historical World Cube
+Association (WCA) delegate records missing from the WCA website. Contributors use it
+to review and correct date histories from WCA reference data and historical evidence,
+approve records, and prepare migration files for submission to WCA. The current
+implementation is a pnpm workspace with a Next.js frontend, an Express + SQLite/Drizzle
+backend behind an OpenAPI-first contract, and an Electron desktop shell with
+multi-laptop cloud-sync support.
 
 ## Stack
 
@@ -49,10 +52,10 @@ shell with multi-laptop cloud-sync support already scaffolded end to end.
     full app rather than running as plain Node when given a script path via argv —
     unlike the unpacked dev Electron binary, where that heuristic works implicitly.
   - See [docs/stories/0003-review-overall-architecture.md](../docs/stories/0003-review-overall-architecture.md)
-    for deciding early whether a given project keeps this app at all.
+    for deciding whether Delegate History needs the desktop app.
 - **Release automation:** [.github/workflows/release.yml](workflows/release.yml)
   builds the macOS `.dmg` and Windows NSIS installer in CI and uploads them as assets
-  on the matching GitHub Release. Disabled by default in this template — the `push`
+  on the matching GitHub Release. Disabled for now — the `push`
   tag trigger is commented out, so it currently only runs via manual
   `workflow_dispatch` against an existing tag, until the packaged installers have
   been verified and the `push` trigger is re-enabled.

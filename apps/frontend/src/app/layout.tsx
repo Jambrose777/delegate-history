@@ -12,7 +12,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Delegate History',
-  description: 'A baseplate for spinning up new projects fast.',
+  description: 'Reconstructing historical WCA delegate records missing from the WCA website.',
 };
 
 export default function RootLayout({
