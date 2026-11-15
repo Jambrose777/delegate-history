@@ -17,15 +17,7 @@ const frontendOnly = (configs) =>
 
 export default tseslint.config(
   {
-    ignores: [
-      '**/dist/**',
-      '**/coverage/**',
-      '**/node_modules/**',
-      '**/.next/**',
-      '**/out/**',
-      'apps/desktop/.staging/**',
-      'apps/desktop/release/**',
-    ],
+    ignores: ['**/dist/**', '**/coverage/**', '**/node_modules/**', '**/.next/**', '**/out/**'],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
@@ -39,12 +31,9 @@ export default tseslint.config(
   ...frontendOnly(nextCoreWebVitals),
   ...frontendOnly(nextTypescript),
   {
-    // Plain-JS repo automation scripts (e.g. scripts/mark-story-done.mjs,
-    // apps/desktop/scripts/prepare-package.mjs) aren't covered by the
-    // TS-aware blocks above (which quiet `no-undef` because the TypeScript
-    // compiler already flags undefined names), so declare the Node.js
-    // globals they use directly here instead of adding a `globals` package
-    // dependency for one rule.
+    // Plain-JS repo automation scripts aren't covered by the TypeScript-aware
+    // blocks, so declare their Node.js globals here rather than adding a
+    // separate globals package just for this rule.
     files: ['scripts/**/*.mjs', 'apps/*/scripts/**/*.mjs'],
     languageOptions: {
       globals: {

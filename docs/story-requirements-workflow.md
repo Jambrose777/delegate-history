@@ -45,10 +45,13 @@
 - pnpm workspace; Next.js, React, and TypeScript frontend; Express and TypeScript
   backend.
 - REST and OpenAPI-first API with generated types and Problem Details errors.
-- SQLite with Drizzle ORM; migrations under `apps/backend/drizzle/`.
-- Electron desktop packaging (`apps/desktop`) with multi-laptop cloud-sync support
-  (backup snapshots, sync marker, launch-time confirmation handshake) — see story 3
-  (review the overall architecture) for whether a given project keeps this.
+- PostgreSQL is the local development target; the backend currently uses SQLite until
+  a separate migration. Drizzle remains provisional pending AWS DSQL compatibility
+  review.
+- Anonymous visitors can browse; WCA-authenticated users can suggest. Admins grant
+  approver/admin roles for editing and approval.
+- WCA reference-data sync is user-triggered initially; source evidence is represented
+  by short labels and optional links rather than uploaded files.
 - Jest for backend and frontend unit/integration tests.
 
 ## Current stopping point

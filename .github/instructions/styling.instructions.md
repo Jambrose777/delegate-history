@@ -65,7 +65,8 @@ sections as decided.
 ## Breakpoints & layout
 
 - Tailwind's default breakpoint scale is reset; the only breakpoint is `desktop`
-  (`1024px`), matching the supported desktop-only viewport. Do not add
+- Tailwind's default breakpoint scale is reset; the only breakpoint is `desktop`
+  (`1024px`). Do not add
   `sm:`/`md:`/`lg:`/`xl:`/`2xl:` variants.
 - Page content has no max-width container and fills the full viewport width.
 

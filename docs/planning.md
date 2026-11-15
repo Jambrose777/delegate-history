@@ -15,48 +15,20 @@ data, and generate migration files for submission to WCA.
 
 ## Tech stack
 
-- Frontend: React (Next.js)
-- Frontend styling: Tailwind CSS
-- Backend: Node.js (Express)
-- Language: TypeScript
-- API: REST with an OpenAPI-first contract (`packages/api-contract`)
-- Database: SQLite with Drizzle ORM
-- Authentication: None for the initial local single-user version
-- Hosting: Local machine for the initial version
-- Desktop packaging: Electron + `electron-builder`, bundling the Next.js frontend and
-  Express backend as two managed local child processes in `apps/desktop`;
-  unsigned/unnotarized macOS `.dmg`/Windows NSIS installer builds, no auto-updater.
-  `apps/desktop`'s own main/preload code is bundled with esbuild
-  (`apps/desktop/scripts/build.mjs`) rather than plain `tsc`, so its `package.json`
-  carries zero runtime `dependencies` — this keeps electron-builder's automatic
-  node-modules dependency collector from finding anything to resolve, which otherwise
-  risks triggering a destructive, unscoped `pnpm install --production` across the
-  whole workspace in this pnpm monorepo. Both the backend and frontend child processes
-  are spawned with `ELECTRON_RUN_AS_NODE: '1'` in their `env`, since a packaged/branded
-  Electron executable (unlike the unpacked dev binary) always relaunches itself as the
-  full app rather than running as plain Node when given a script path via argv. See
-  story 3 for reviewing whether Delegate History needs the desktop app.
-- Release automation: [.github/workflows/release.yml](../.github/workflows/release.yml)
-  builds the macOS `.dmg` and Windows NSIS installer in CI (on `macos-latest`/
-  `windows-latest` GitHub-hosted runners) and uploads them as assets on the matching
-  GitHub Release. Disabled for now — the `push` tag trigger is
-  commented out, so it currently only runs via manual `workflow_dispatch` against an
-  existing tag, until the early backlog story for enabling/testing this workflow
-  verifies the packaged installers and re-enables the `push` trigger.
-  `apps/desktop/package.json`'s `build.mac.artifactName`/
-  `build.nsis.artifactName` fix each installer's filename (no embedded version number),
-  so the root [README.md](../README.md)'s `releases/latest/download/<filename>` links
-  keep resolving to the newest build across releases.
-- Multi-laptop data sync: a settings-screen folder picker lets the user point the
-  existing `APP_DATA_DIRECTORY` at a folder managed by a consumer cloud-sync client
-  (Dropbox/iCloud Drive/OneDrive/Google Drive, handled provider-agnostically). The app
-  checkpoints and cleanly closes SQLite's WAL on quit so a single self-contained `.db`
-  file is left for the sync client to pick up, tracks a `.sync-lock.json` marker to
-  warn (advisory only) when another laptop recently had the data open or the directory
-  looks mid-sync, and automatically writes a rotating local (non-synced) backup
-  snapshot before any risky operation. This remains local-first with no hosted server
-  or real-time concurrent editing — only one laptop is expected to have the app open
-  at a time.
+- Frontend: React (Next.js, App Router) with Tailwind CSS
+- Backend: Node.js (Express) with TypeScript
+- API: Separate REST service with an OpenAPI-first contract (`packages/api-contract`)
+- Database: PostgreSQL is the local development target. The current backend still uses
+  SQLite pending a follow-up migration. Drizzle remains provisional until its driver
+  and feature compatibility with a possible future AWS DSQL target is checked; defer
+  AWS DSQL provisioning.
+- Authentication: Anonymous users can browse; WCA-authenticated users can suggest.
+  Admins grant approver/admin roles for editing and approval; admins inherit approver
+  permissions.
+- Hosting: Web deployment target TBD. AWS EC2 for the backend and CloudFront for the
+  frontend are under consideration.
+- Evidence: Store short source labels and optional links; do not upload source files.
+- WCA reference sync: User-triggered initially; no scheduled worker.
 
 ## Story backlog
 

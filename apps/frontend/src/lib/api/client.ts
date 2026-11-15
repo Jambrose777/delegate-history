@@ -2,28 +2,8 @@ import { DEFAULT_BACKEND_ORIGIN } from '@delegate-history/shared';
 import createClient from 'openapi-fetch';
 
 import type { paths } from '@delegate-history/api-contract';
-
-// The packaged desktop app can't know its backend's actual port at build
-// time (it's chosen at runtime - see apps/desktop/src/ports.ts), so its
-// preload script injects the real origin as this global before any of the
-// page's own scripts run (see apps/desktop/src/preload.ts). Declared here
-// so `window.__BACKEND_URL__` below type-checks without `any`.
-declare global {
-  interface Window {
-    __BACKEND_URL__?: string;
-  }
-}
-
-// The backend origin is, in order: the Electron desktop app's injected
-// runtime global (above); NEXT_PUBLIC_BACKEND_URL, overridable
-// per-environment (e.g. for a non-default port in local web development);
-// or the canonical shared default, so the frontend and backend never drift
-// apart. Exported so any caller that needs to resolve a backend-relative
-// URL (e.g. a file the backend serves) into a full URL can reuse it.
-export const backendUrl =
-  (typeof window !== 'undefined' ? window.__BACKEND_URL__ : undefined) ??
-  process.env.NEXT_PUBLIC_BACKEND_URL ??
-  DEFAULT_BACKEND_ORIGIN;
+// Use the configured service origin when deployed, otherwise the shared local default.
+export const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL ?? DEFAULT_BACKEND_ORIGIN;
 
 // A single OpenAPI-typed REST client shared by every backend call the frontend makes.
 export const apiClient = createClient<paths>({ baseUrl: backendUrl });

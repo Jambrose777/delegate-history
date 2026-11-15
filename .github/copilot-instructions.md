@@ -2,17 +2,15 @@
 
 ## Project overview
 
-`delegate-history` is a collaborative tool for reconstructing historical World Cube
-Association (WCA) delegate records missing from the WCA website. Contributors use it
-to review and correct date histories from WCA reference data and historical evidence,
-approve records, and prepare migration files for submission to WCA. The current
-implementation is a pnpm workspace with a Next.js frontend, an Express + SQLite/Drizzle
-backend behind an OpenAPI-first contract, and an Electron desktop shell with
-multi-laptop cloud-sync support.
+`delegate-history` is a collaborative web application for reconstructing historical
+World Cube Association (WCA) delegate records missing from the WCA website.
+Contributors review and correct date histories, approve records, and prepare migration
+files for WCA. The site is public to browse; WCA-authenticated users can suggest
+records, and admins grant elevated approver/admin permissions.
 
 ## Stack
 
-- **Repository:** pnpm workspace — `apps/{backend,frontend,desktop}` and
+- **Repository:** pnpm workspace — `apps/{backend,frontend}` and
   `packages/{shared,api-contract}`
 - **Frontend:** React (Next.js, App Router) with TypeScript, styled with Tailwind CSS
 - **Frontend icons:** Lucide React (`lucide-react`)
@@ -22,78 +20,21 @@ multi-laptop cloud-sync support.
   validated at runtime with `express-openapi-validator` and consumed by the frontend
   through a typed `openapi-fetch` client
   ([apps/frontend/src/lib/api/client.ts](../apps/frontend/src/lib/api/client.ts))
-- **Database:** SQLite with Drizzle ORM
-  ([apps/backend/src/database/schema.ts](../apps/backend/src/database/schema.ts));
-  migrations live under `apps/backend/drizzle/` and are generated with
-  `pnpm --filter @delegate-history/backend db:generate`
-- **Deployment:** local single-user application without authentication
+- **Database:** PostgreSQL is the local development target. The current backend still
+  uses SQLite pending a follow-up migration. Drizzle is provisional until compatibility
+  with a possible future AWS DSQL target is checked; do not provision DSQL yet.
+- **Authentication:** Anonymous users can browse; WCA-authenticated users can suggest.
+  Admins grant approver/admin roles for editing and approval.
+- **Hosting:** Cloud deployment is undecided; AWS EC2 for the backend and CloudFront for
+  the frontend are under consideration.
+- **Evidence and reference data:** Store source titles and optional links only; do not
+  upload source files. WCA sync is user-triggered initially.
 - **Mutation idempotency:** a generic `mutation_idempotency` table plus
   lookup/save/prune helpers
   ([apps/backend/src/idempotency/mutationIdempotency.ts](../apps/backend/src/idempotency/mutationIdempotency.ts))
   let a client retry a mutation with the same idempotency key and safely replay the
   original response instead of repeating the effect.
-- **Desktop packaging:** Electron + `electron-builder` in `apps/desktop` — bundles the
-  frontend's production build and the backend as two managed local child processes,
-  producing unsigned/unnotarized macOS `.dmg` and Windows NSIS installer builds with
-  no auto-updater. See [apps/desktop/src/main.ts](../apps/desktop/src/main.ts) for the
-  Electron main process and
-  [apps/desktop/scripts/prepare-package.mjs](../apps/desktop/scripts/prepare-package.mjs)
-  for the packaging build (production `pnpm deploy --legacy` staging +
-  `@electron/rebuild` for `better-sqlite3`).
-  - `apps/desktop`'s own main/preload code is bundled with esbuild
-    ([apps/desktop/scripts/build.mjs](../apps/desktop/scripts/build.mjs)) instead of
-    plain `tsc`, so `apps/desktop/package.json` has zero runtime `dependencies` (all
-    moved to `devDependencies`) — this prevents electron-builder's automatic
-    node-modules dependency collector from attempting a destructive, unscoped
-    `pnpm install --production` across the whole pnpm workspace.
-  - Both child processes (`apps/desktop/src/processes/backendProcess.ts` and
-    `frontendProcess.ts`) set `ELECTRON_RUN_AS_NODE: '1'` in their spawned `env`,
-    since a packaged/branded Electron executable always relaunches itself as the
-    full app rather than running as plain Node when given a script path via argv —
-    unlike the unpacked dev Electron binary, where that heuristic works implicitly.
-  - See [docs/stories/0003-review-overall-architecture.md](../docs/stories/0003-review-overall-architecture.md)
-    for deciding whether Delegate History needs the desktop app.
-- **Release automation:** [.github/workflows/release.yml](workflows/release.yml)
-  builds the macOS `.dmg` and Windows NSIS installer in CI and uploads them as assets
-  on the matching GitHub Release. Disabled for now — the `push`
-  tag trigger is commented out, so it currently only runs via manual
-  `workflow_dispatch` against an existing tag, until the packaged installers have
-  been verified and the `push` trigger is re-enabled.
-  `apps/desktop/package.json`'s
-  `build.mac.artifactName`/`build.nsis.artifactName` fix each installer's filename (no
-  embedded version number) so the root [README.md](../README.md)'s
-  `releases/latest/download/<filename>` links keep resolving to the newest build.
-- **Multi-laptop data sync:** the backend owns all of it — an
-  `APP_LOCAL_STATE_DIRECTORY` env var (`config.localStateDirectory`) names a
-  fixed, always-local directory (Electron passes `app.getPath('userData')`, kept
-  separate from the user-configurable, possibly cloud-synced
-  `APP_DATA_DIRECTORY`) for rotating backup snapshots
-  ([apps/backend/src/sync/backupSnapshots.ts](../apps/backend/src/sync/backupSnapshots.ts),
-  which zips the raw SQLite file plus the local files directory) and the
-  `.sync-lock.json` machine/timestamp marker
-  ([apps/backend/src/sync/syncMarker.ts](../apps/backend/src/sync/syncMarker.ts),
-  [directoryState.ts](../apps/backend/src/sync/directoryState.ts)). Before opening
-  the database, [server.ts](../apps/backend/src/server.ts)'s async `main()`
-  evaluates directory/marker state and, if launch-time confirmation is needed, runs
-  a temporary pre-database Express app exposing `GET /startup/status`/
-  `POST /startup/confirm` ([routes/startup.ts](../apps/backend/src/routes/startup.ts))
-  — the real app mounts the same two routes (always reporting no confirmation
-  pending) so a caller can poll one consistent endpoint pair throughout startup.
-  Quitting calls `POST /maintenance/prepare-shutdown`
-  ([routes/shutdown.ts](../apps/backend/src/routes/shutdown.ts): backup, WAL
-  `checkpoint()`, close, `process.exit(0)`) rather than relying on
-  `ChildProcess.kill()` alone, since that's not a reliably catchable signal on
-  Windows; [apps/desktop/src/main.ts](../apps/desktop/src/main.ts) awaits it before
-  falling back to killing the child process directly, and
-  [backendProcess.ts](../apps/desktop/src/processes/backendProcess.ts)'s launch
-  polling handles the `/startup/status` confirmation handshake via a native
-  `dialog.showMessageBox` prompt. The user's chosen data-directory override is
-  set via the frontend's `/settings` page (Electron-only —
-  [apps/frontend/src/app/settings/page.tsx](../apps/frontend/src/app/settings/page.tsx))
-  through an IPC bridge (`window.__DESKTOP_SETTINGS__`,
-  [preload.cts](../apps/desktop/src/preload.cts)) and persisted to
-  [apps/desktop/src/desktopSettings.ts](../apps/desktop/src/desktopSettings.ts)'s
-  `desktop-settings.json`, applying on the next relaunch.
+
 - If you introduce a new dependency or architectural decision, record it in
   [docs/planning.md](../docs/planning.md), keep this file in sync, and update the
   architecture diagram in [README.md](../README.md) if it changes the apps/packages
